@@ -16,7 +16,7 @@ const booksTable = props => {
   ));
 
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover responsive="md">
       <thead>
         <tr>
           <th>ID</th>

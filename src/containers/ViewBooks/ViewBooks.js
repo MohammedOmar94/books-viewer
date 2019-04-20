@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { createBrowserHistory } from 'history';
 import queryString from 'query-string';
 
+import classes from './ViewBooks.module.css';
 import axios from "axios";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -95,6 +96,7 @@ class ViewBooks extends Component {
   }
 
   render() {
+    // Create individual page button components.
     let items = [];
     for (let number = 1; number <= this.state.pages; number++) {
       items.push(
@@ -108,18 +110,24 @@ class ViewBooks extends Component {
       );
     }
 
-    const searchInfo = <p>Search results for <b>{this.state.search}, { this.state.numberOfBooks } results found.</b></p>;
+    let searchInfo = null;
+    if (this.state.search) {
+      searchInfo = <p className={classes.ResultsInfo}>
+        Search results for <b>{this.state.search}, { this.state.numberOfBooks } results found.</b></p>;
+    }
 
     return (
-      <div>
-        <DropdownButton id="dropdown-basic-button" title={"Items per page: " + this.state.itemsPerPage}>
-          <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(5)}>5</Dropdown.Item>
-          <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(10)}>10</Dropdown.Item>
-          <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(20)}>20</Dropdown.Item>
-          <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(50)}>50</Dropdown.Item>
-        </DropdownButton>
-        <Form.Control type='text' id='search'/>
-        <Button onClick={this.handleSearch} variant="primary">Search</Button>
+      <section className={classes.ViewBooks}>
+        <section className={classes.Controls}>
+          <DropdownButton id="dropdown-basic-button" title={"Items per page: " + this.state.itemsPerPage}>
+            <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(5)}>5</Dropdown.Item>
+            <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(10)}>10</Dropdown.Item>
+            <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(20)}>20</Dropdown.Item>
+            <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(50)}>50</Dropdown.Item>
+          </DropdownButton>
+          <Form.Control type='text' id='search'/>
+          <Button onClick={this.handleSearch} variant="primary">Search</Button>
+        </section>
         { searchInfo }
         <BooksTable
           books={this.state.books}
@@ -127,7 +135,7 @@ class ViewBooks extends Component {
           page={this.state.page}
         />
         <Pagination>{items}</Pagination>
-      </div>
+      </section>
     );
   }
 }
