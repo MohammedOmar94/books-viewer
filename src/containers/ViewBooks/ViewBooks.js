@@ -14,23 +14,8 @@ class ViewBooks extends Component {
   };
 
   componentDidMount() {
-    axios
-      .post("/api/books", {
-        page: 1,
-        itemsPerPage: this.state.itemsPerPage,
-        filters: []
-      })
-      .then(response => {
-        const numberOfBooks = response.data.count;
-        const numberOfPages = Math.ceil(
-          numberOfBooks / this.state.itemsPerPage
-        );
-        this.setState({
-          books: response.data.books,
-          numberOfBooks: numberOfBooks,
-          pages: numberOfPages
-        });
-      });
+    // Get first page of all books.
+    this.getListOfBooks(1);
   }
 
   getListOfBooks = (requestedPage) => {
