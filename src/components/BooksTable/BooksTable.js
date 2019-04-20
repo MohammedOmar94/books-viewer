@@ -14,6 +14,7 @@ const booksTable = props => {
       <td>{book.book_publication_year}</td>
     </tr>
   ));
+
   return (
     <Table striped bordered hover>
       <thead>
@@ -33,7 +34,9 @@ const booksTable = props => {
 };
 
 booksTable.propTypes = {
-  books: PropTypes.array.isRequired
+  books: PropTypes.array.isRequired,
+  pages: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired
 };
 
 export default booksTable;
