@@ -7,7 +7,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // All axios API requests will have this prefixed automatically.
-axios.defaults.baseURL = 'http://nyx.vima.ekt.gr:3000/';
+axios.defaults.baseURL = '//nyx.vima.ekt.gr:3000/';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
