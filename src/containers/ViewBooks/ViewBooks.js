@@ -46,6 +46,18 @@ class ViewBooks extends Component {
     if (search.length) {
       filters = [{type: "all", values: [search]}];
     }
+
+    // Validation checks on the query params.
+    if (itemsPerPage > 50 || isNaN(itemsPerPage)) {
+      itemsPerPage = 50;
+    } else if (itemsPerPage < 1) {
+      itemsPerPage = 1;
+    }
+
+    if (requestedPage < 1 || isNaN(requestedPage)) {
+      requestedPage = 1;
+    }
+
     axios
       .post("/api/books", {
         page: requestedPage,
