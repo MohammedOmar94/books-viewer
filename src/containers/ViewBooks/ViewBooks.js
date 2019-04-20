@@ -35,8 +35,8 @@ class ViewBooks extends Component {
       const search = queryParams.search ? queryParams.search : '';
       this.getListOfBooks(page, itemsPerPage, search);
     } else {
-      // Get first page of all books, 20 items per page.
-      this.getListOfBooks(1, 20);
+      // Get first page of all books, 20 items per page, with no search filter.
+      this.getListOfBooks(1, 20, []);
     }
   }
 
