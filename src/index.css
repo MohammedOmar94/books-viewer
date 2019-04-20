@@ -1,3 +1,7 @@
+@import './css/bootstrap-theme.min.css';
+@import './css/bootstrap.min.css';
+
+
 * {
   margin: 0;
   padding: 0;
