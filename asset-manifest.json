@@ -1,0 +1,14 @@
+{
+  "main.css": "/books-viewer/static/css/main.08d9c4af.chunk.css",
+  "main.js": "/books-viewer/static/js/main.3c15b7ea.chunk.js",
+  "main.js.map": "/books-viewer/static/js/main.3c15b7ea.chunk.js.map",
+  "runtime~main.js": "/books-viewer/static/js/runtime~main.50813e9d.js",
+  "runtime~main.js.map": "/books-viewer/static/js/runtime~main.50813e9d.js.map",
+  "static/js/2.a7ee951f.chunk.js": "/books-viewer/static/js/2.a7ee951f.chunk.js",
+  "static/js/2.a7ee951f.chunk.js.map": "/books-viewer/static/js/2.a7ee951f.chunk.js.map",
+  "index.html": "/books-viewer/index.html",
+  "precache-manifest.1d66ed84d6266c15c602ac53ea703e6f.js": "/books-viewer/precache-manifest.1d66ed84d6266c15c602ac53ea703e6f.js",
+  "service-worker.js": "/books-viewer/service-worker.js",
+  "static/css/main.08d9c4af.chunk.css.map": "/books-viewer/static/css/main.08d9c4af.chunk.css.map",
+  "static/media/index.css": "/books-viewer/static/media/glyphicons-halflings-regular.fa277232.woff"
+}
