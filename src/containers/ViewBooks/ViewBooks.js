@@ -110,16 +110,59 @@ class ViewBooks extends Component {
   render() {
     // Create individual page button components.
     let items = [];
-    for (let number = 1; number <= this.state.pages; number++) {
-      items.push(
-        <Pagination.Item
-          key={number}
-          active={number === this.state.page}
-          onClick={() => this.handleChangePage(number)}
-        >
-          {number}
-        </Pagination.Item>
-      );
+    const numberOfPages = this.state.pages;
+    const moreThan10Pages =  numberOfPages > 10;
+    const currentPage = this.state.page;
+
+    if (moreThan10Pages &&  currentPage < 10) {
+      // For the first 10 pages, just show the normal set of buttons.
+      // Should be able to see a button to skip to the last page.
+      for (let number = 1; number <= 10; number++) {
+        items.push(
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => this.handleChangePage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        );
+      }
+      items.push(<Pagination.Ellipsis key='...'/>);
+      items.push(<Pagination.Last key='last-page' onClick={() => this.handleChangePage(numberOfPages)} />);
+    } else if (moreThan10Pages && currentPage >= 10 && currentPage < numberOfPages - 5) {
+      // After the first 10 pages, and before the last 5 pages, I should see the first and last buttons.
+      items.push(<Pagination.First key='first-page' onClick={() => this.handleChangePage(1)} />);
+      items.push(<Pagination.Ellipsis key='...-01'/>);
+      // The active page button should also be in the middle (spaced by 5).
+      for (let number = currentPage - 5; number <= currentPage + 5; number++) {
+        items.push(
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => this.handleChangePage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        );
+      }
+      items.push(<Pagination.Ellipsis key='...-02'/>);
+      items.push(<Pagination.Last key='last-page' onClick={() => this.handleChangePage(numberOfPages)}/>);
+    } else {
+      // Once at the last 6 pages, you should be able to see the last page and a button to gp back to the first page.
+      items.push(<Pagination.First key='first-page' onClick={() => this.handleChangePage(1)} />);
+      items.push(<Pagination.Ellipsis key='...'/>);
+      for (let number = numberOfPages - 6; number <= numberOfPages; number++) {
+        items.push(
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => this.handleChangePage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        );
+      }
     }
 
     let searchInfo = null;
