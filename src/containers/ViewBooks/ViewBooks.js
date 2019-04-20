@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import { createBrowserHistory } from 'history';
+import queryString from 'query-string';
+
 import axios from "axios";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -16,8 +19,20 @@ class ViewBooks extends Component {
   };
 
   componentDidMount() {
-    // Get first page of all books, 20 items per page.
-    this.getListOfBooks(1, 20);
+    // Get the current location.
+    const history = createBrowserHistory();
+    const location = history.location;
+    // Get results according to URL parameters.
+    if (location.search) {
+      // Parse query params.
+      const queryParams = queryString.parse(location.search)
+      const page = parseInt(queryParams.p);
+      const itemsPerPage = parseInt(queryParams.items)
+      this.getListOfBooks(page, itemsPerPage);
+    } else {
+      // Get first page of all books, 20 items per page.
+      this.getListOfBooks(1, 20);
+    }
   }
 
   getListOfBooks = (requestedPage, itemsPerPage) => {
@@ -39,6 +54,10 @@ class ViewBooks extends Component {
           page: requestedPage,
           itemsPerPage: itemsPerPage
         });
+
+        // Update URL with params.
+        const history = createBrowserHistory();
+        history.push('/?p=' + requestedPage + '&items=' + itemsPerPage);
       });
   };
 
