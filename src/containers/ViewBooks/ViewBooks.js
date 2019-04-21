@@ -193,7 +193,7 @@ class ViewBooks extends Component {
             <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(20)}>20</Dropdown.Item>
             <Dropdown.Item onClick={() => this.handleChangeItemsPerPage(50)}>50</Dropdown.Item>
           </DropdownButton>
-          <Form.Control type='text' id='search'/>
+          <Form.Control type='text' id='search' maxLength='200'/>
           <Button onClick={this.handleSearch} variant="primary">Search</Button>
         </section>
         { searchInfo }
