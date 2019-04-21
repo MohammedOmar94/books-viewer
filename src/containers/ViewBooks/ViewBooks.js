@@ -166,7 +166,7 @@ class ViewBooks extends Component {
     }
 
     let searchInfo = null;
-    if (this.state.search) {
+    if (this.state.search.length) {
       searchInfo = <p className={classes.ResultsInfo}>
         Search results for <b>{this.state.search}, { this.state.numberOfBooks } results found.</b></p>;
     }
