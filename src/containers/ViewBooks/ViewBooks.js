@@ -148,11 +148,24 @@ class ViewBooks extends Component {
       }
       items.push(<Pagination.Ellipsis key='...-02'/>);
       items.push(<Pagination.Last key='last-page' onClick={() => this.handleChangePage(numberOfPages)}/>);
-    } else {
+    } else if (moreThan10Pages && currentPage >= 10 && currentPage >= numberOfPages - 5) {
       // Once at the last 6 pages, you should be able to see the last page and a button to gp back to the first page.
       items.push(<Pagination.First key='first-page' onClick={() => this.handleChangePage(1)} />);
       items.push(<Pagination.Ellipsis key='...'/>);
       for (let number = numberOfPages - 6; number <= numberOfPages; number++) {
+        items.push(
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => this.handleChangePage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        );
+      }
+    } else {
+      // Case where there are less than 10 pages, should see up to 10 standard page buttons.
+      for (let number = 1; number <= numberOfPages; number++) {
         items.push(
           <Pagination.Item
             key={number}
