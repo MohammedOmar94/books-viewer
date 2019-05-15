@@ -14,7 +14,9 @@ import BooksTable from "../../components/BooksTable/BooksTable";
 
 class ViewBooks extends Component {
   state = {
-    history: createBrowserHistory(),
+    history: createBrowserHistory({
+      basename: window.location.pathname, // The base URL of the app (see below)
+    }),
     books: [],
     numberOfBooks: 0,
     itemsPerPage: 0,
