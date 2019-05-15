@@ -1,14 +1,14 @@
 {
-  "main.css": "/books-viewer/static/css/main.08d9c4af.chunk.css",
-  "main.js": "/books-viewer/static/js/main.58e55fad.chunk.js",
-  "main.js.map": "/books-viewer/static/js/main.58e55fad.chunk.js.map",
+  "main.css": "/books-viewer/static/css/main.9a27638a.chunk.css",
+  "main.js": "/books-viewer/static/js/main.4764350f.chunk.js",
+  "main.js.map": "/books-viewer/static/js/main.4764350f.chunk.js.map",
   "runtime~main.js": "/books-viewer/static/js/runtime~main.50813e9d.js",
   "runtime~main.js.map": "/books-viewer/static/js/runtime~main.50813e9d.js.map",
   "static/js/2.a7ee951f.chunk.js": "/books-viewer/static/js/2.a7ee951f.chunk.js",
   "static/js/2.a7ee951f.chunk.js.map": "/books-viewer/static/js/2.a7ee951f.chunk.js.map",
   "index.html": "/books-viewer/index.html",
-  "precache-manifest.06ca09012906db30b581fcc6d3b08f96.js": "/books-viewer/precache-manifest.06ca09012906db30b581fcc6d3b08f96.js",
+  "precache-manifest.1842b1534ab3858104fd89db1091cd18.js": "/books-viewer/precache-manifest.1842b1534ab3858104fd89db1091cd18.js",
   "service-worker.js": "/books-viewer/service-worker.js",
-  "static/css/main.08d9c4af.chunk.css.map": "/books-viewer/static/css/main.08d9c4af.chunk.css.map",
+  "static/css/main.9a27638a.chunk.css.map": "/books-viewer/static/css/main.9a27638a.chunk.css.map",
   "static/media/index.css": "/books-viewer/static/media/glyphicons-halflings-regular.fa277232.woff"
 }
